@@ -4,19 +4,18 @@
 </template>
 
 <script setup>
-import Header from './components/Header.vue';
-import { onMounted } from 'vue';
-import {useStore} from 'vuex';
+import Header from "./components/Header.vue";
+import { onMounted } from "vue";
+import { useStore } from "vuex";
 
-const store = useStore()
+const store = useStore();
 
 onMounted(() => {
-  if (localStorage.getItem('cartItem')) {
-    store.dispatch('replaceProduct', JSON.parse(localStorage.getItem('cartItem')))
+  if (localStorage.getItem("cartItem")) {
+    store.dispatch(
+      "replaceProduct",
+      JSON.parse(localStorage.getItem("cartItem"))
+    );
   }
-})
-
+});
 </script>
-
-
-

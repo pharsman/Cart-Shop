@@ -1,11 +1,12 @@
 /* eslint-env node */
 module.exports = {
-  "root": true,
-  "extends": [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  }
-}
+  // Use the rule set.
+  extends: ["plugin:vue/base"],
+  rules: {
+    // Enable vue/script-setup-uses-vars rule
+    "vue/script-setup-uses-vars": "error",
+  },
+  env: {
+    "vue/setup-compiler-macros": true,
+  },
+};
