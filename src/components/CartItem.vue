@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="list">
-      <div @click="openInner" class="img">
+      <div @click="openInner" class="img" style="cursor: pointer">
         <img :src="data.img" />
       </div>
       <div class="info">

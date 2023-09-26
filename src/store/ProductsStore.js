@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
-export const useProductsStore = defineStore("products", () => {
+export const ProductsStore = defineStore("products", () => {
   const cartProducts = ref([]);
   const setProduct = (val) => {
     cartProducts.value.push(val);

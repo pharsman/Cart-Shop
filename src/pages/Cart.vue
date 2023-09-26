@@ -19,18 +19,18 @@
 
 <script setup>
 import CartItem from "@/components/CartItem.vue";
-import { useStore } from "vuex";
+import { ProductsStore } from "@/store/ProductsStore";
 import { computed } from "vue";
 
-const store = useStore();
+const store = ProductsStore();
 
 const getData = computed(() => {
-  return store.getters.getProducts;
+  return store.cartProducts;
 });
 
 const deleteItem = (item) => {
-  store.dispatch("removeProduct", item.id);
-  localStorage.setItem("cartItem", JSON.stringify(store.state.cartProducts));
+  store.removeProduct(item.id);
+  localStorage.setItem("cartItem", JSON.stringify(store.cartProducts));
 };
 
 const getFullBalance = computed(() => {

@@ -11,15 +11,15 @@
 </template>
 
 <script setup>
-import { useStore } from "vuex";
+import { ProductsStore } from "@/store/ProductsStore";
 import { ref, watch, computed } from "vue";
 
-const store = useStore();
+const store = ProductsStore();
 
 const active = ref(false);
 
 const getProductLength = computed(() => {
-  return store.getters.getProducts.length;
+  return store.cartProducts.length;
 });
 
 watch(getProductLength, () => {

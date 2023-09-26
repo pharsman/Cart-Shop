@@ -26,12 +26,12 @@
 </template>
 
 <script setup>
-import { useStore } from "vuex";
+import { ProductsStore } from "@/store/ProductsStore";
 import { useRoute } from "vue-router";
 import { ref, onMounted, computed } from "vue";
 
 const route = useRoute();
-const store = useStore();
+const store = ProductsStore();
 
 const currentData = ref([]);
 const counter = ref(1);
@@ -60,15 +60,15 @@ const add = () => {
     price: price,
     amount: counter.value,
   };
-  store.dispatch("setProduct", addItem.value);
-  localStorage.setItem("cartItem", JSON.stringify(store.state.cartProducts));
+  store.setProduct(addItem.value);
+  localStorage.setItem("cartItem", JSON.stringify(store.cartProducts));
   disableButton();
 };
 
 const disableBut = ref(false);
 
 const disableButton = () => {
-  store.getters.getProducts.forEach((el) => {
+  store.cartProducts.forEach((el) => {
     if (el.id === currentData.value.id) {
       disableBut.value = true;
     }
